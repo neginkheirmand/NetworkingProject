@@ -6,6 +6,6 @@ python server.py
 python client.py
 ```
 
-and then proceed to run prometheus, remember to add the 8000 target to the targets in prometheus, the sample prometheus config file could be found here.
+and then proceed to run prometheus, remember to add the 8000 target to the targets in prometheus, the sample prometheus config file could be found [here](https://github.com/neginkheirmand/NetworkingProject/blob/master/socket%20programming/prometheus-config/prometheus.yml).
 
 ​	
