@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+
+  server:
+    container_name: server
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+    command: bash -c "python ./agentServer.py"
+    networks:
+      - network
+    # ports:
+    # - "2004:2004"
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+    - "80:9090"
+    # links:
+    #   - server:localhost
+    networks:
+      - network
+
+  agent:
+    container_name: agent
+    build:
+      dockerfile: Dockerfile
+      context: ./agent
+    restart: always
+    command: bash -c "python ./agent.py"
+    networks:
+      - network
+    # depends_on:
+    #   - server
+
+
+networks:
+  network:
