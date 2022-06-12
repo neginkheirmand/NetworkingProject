@@ -10,3 +10,4 @@ and then proceed to run prometheus, remember to add the 8000 target to the targe
 
 use the files in the networking folder to build images and start the containers:
 	docker-compose up -d --build
+	
