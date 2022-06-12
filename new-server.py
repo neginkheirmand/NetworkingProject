@@ -28,11 +28,11 @@ class agentServer(object):
         
         for key, value in socketData.items():
             index = key[0]+":"+str(key[1])
-            g = GaugeMetricFamily("CPU_Usage", 'Help text', labels=['CPU_Usage'])
+            g = GaugeMetricFamily("CPU_Usage", 'Help text', labels=['client'])
             g.add_metric([ index], value["cpu_percent"])
             yield g
 
-            c = GaugeMetricFamily("RAM_Usage", 'Help text', labels=['RAM_Usage'])
+            c = GaugeMetricFamily("RAM_Usage", 'Help text', labels=['client'])
             c.add_metric([ index ], value["ram_percent"])
             yield c
 
